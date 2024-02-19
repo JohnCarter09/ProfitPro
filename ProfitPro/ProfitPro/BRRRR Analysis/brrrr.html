@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BRRRR Calculator</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Optional custom styles can be added here */
+  </style>
+</head>
+<body class="bg-gray-100 p-8">
+  <div class="flex h-screen bg-gray-100">
+    <!-- Content area -->
+    <div class="flex-1 p-4">
+        <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow">
+          <h1 class="text-2xl font-bold mb-4">BRRRR Calculator</h1>
+          <div>
+              <p>The BRRRR strategy has been around for many years and stands for buy, repair, rent, refinance, and repeat. The reason the strategy has become so popular is that an investor can buy a rental property, and get most or all of their cash back out using a refinance. They can then use that money to buy another rental and repeat the process over and over again.</p>
+          </div>
+          <div>
+              <hr class="my-8">
+          </div>
+          <!-- Property Inputs -->
+          <h2 class="text-lg font-semibold mb-2">Property Details</h2>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Property Price</label>
+          <input id="propertyPrice" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Down payment</label>
+          <input id="downPayment" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Closing costs</label>
+          <input id="closingCosts" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Cost of rapairs</label>
+          <input id="repairCosts" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500"  placeholder=" " required>
+          <hr class="my-8">
+      
+          <!-- After Repair Value Inputs -->
+          <h2 class="text-lg font-semibold mb-2">After Repair Value</h2>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">After repair value</label>
+          <input id="arv" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Monthly Rent</label>
+          <input id="monthlyRent" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Closing costs</label>
+          <input id="closingCostsARV" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Insurance and Taxes</label>
+          <input id="insuranceTaxes" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <hr class="my-4">
+      
+          <!-- Refinance Inputs -->
+          <h2 class="text-lg font-semibold mb-2">Refinance</h2>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Interest rate percentage</label>
+          <input id="interestRate" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Loan Length (years)</label>
+          <input id="loanLength" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Loan-to-value Ratio (%)</label>
+          <input id="loanToValue" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <label for="propertyPrice" class="block text-sm font-medium text-gray-700">Refinancing closing costs</label>
+          <input id="refinanceClosingCosts" type="number" class="input mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder=" " required>
+          <hr class="my-8">
+      
+          <!-- Calculate Button -->
+          <button id="calculateBtn" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Calculate</button>
+      
+          <!-- Results -->
+          <div id="results" class="mt-8"></div>
+        </div>
+      
+    </div>
+    
+</div>
+
+<script>
+    // JavaScript for toggle functionality
+    document.getElementById('menu-toggle').addEventListener('click', function() {
+        let sidebar = document.getElementById('sidebar');
+        if (sidebar.classList.contains('hidden')) {
+            sidebar.classList.remove('hidden');
+        } else {
+            sidebar.classList.add('hidden');
+        }
+    });
+</script>
+
+  <script>
+    document.getElementById('calculateBtn').addEventListener('click', function() {
+      // Get input values
+      const propertyPrice = parseFloat(document.getElementById('propertyPrice').value);
+      const downPayment = parseFloat(document.getElementById('downPayment').value);
+      const closingCosts = parseFloat(document.getElementById('closingCosts').value);
+      const repairCosts = parseFloat(document.getElementById('repairCosts').value);
+      const arv = parseFloat(document.getElementById('arv').value);
+      const monthlyRent = parseFloat(document.getElementById('monthlyRent').value);
+      const closingCostsARV = parseFloat(document.getElementById('closingCostsARV').value);
+      const insuranceTaxes = parseFloat(document.getElementById('insuranceTaxes').value);
+      const interestRate = parseFloat(document.getElementById('interestRate').value);
+      const loanLength = parseFloat(document.getElementById('loanLength').value);
+      const loanToValue = parseFloat(document.getElementById('loanToValue').value);
+      const refinanceClosingCosts = parseFloat(document.getElementById('refinanceClosingCosts').value);
+
+      // Perform calculations
+      const totalCashInvested = propertyPrice - downPayment + closingCosts + repairCosts;
+      const monthlyCashFlow = monthlyRent - (insuranceTaxes / 12);
+      const arvCashOutRefinance = arv * (loanToValue / 100) - refinanceClosingCosts;
+      const monthlyCashFlowWithRefinance = monthlyRent - (insuranceTaxes / 12) - (arvCashOutRefinance * (interestRate / 100 / 12));
+
+      // Display results
+      const resultsElement = document.getElementById('results');
+      resultsElement.innerHTML = `
+        <h2 class="text-lg font-semibold mb-2">Results</h2>
+        <p>Cash-Out Refinance: ${arvCashOutRefinance}</p>
+        <p>Monthly Cash Flow with Refinance: ${monthlyCashFlowWithRefinance}</p>
+        <hr class="my-4">
+        <p>Total Cash Invested: ${totalCashInvested}</p>
+        <p>Total Monthly Cash Flow: ${monthlyCashFlow}</p>
+      `;
+    });
+  </script>
+</body>
+</html>

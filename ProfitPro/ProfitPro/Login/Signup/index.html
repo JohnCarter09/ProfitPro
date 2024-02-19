@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProfitPro Access</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex flex-col items-center justify-center min-h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="mb-6 text-2xl font-bold text-center">ProfitPro</h1>
+
+        <!-- Sign Up Form -->
+        <div>
+            <img src="https://cdn.discordapp.com/attachments/1091476955511132224/1209210006528852090/johnc0909_real_estate_calculator_logo_simple_clean_logo_purple__3e80575d-7c19-4cc7-9c3a-de966ccee1b5.png?ex=65e61793&is=65d3a293&hm=b05683c7a6fb3964dbf788462815b44302a46a5727275be23cf6e18b0befb3c9&" alt="Description of the image">
+        </div>
+        <form id="signupForm">
+            <h2 class="text-lg font-semibold mb-4">Sign Up</h2>
+            <div class="mb-4">
+                <label for="signupEmail" class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="signupEmail" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+            </div>
+            <div class="mb-4">
+                <label for="signupPassword" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="signupPassword" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="confirmPassword" class="block text-sm font-medium text-gray-700">Confirm Password</label>
+                <input type="password" id="confirmPassword" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" required>
+            </div>
+            <button type="submit" class="w-full items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Sign Up</button>
+            <p class="mt-4 text-sm text-center">Already have an account? <button type="button" id="showLogin" class="text-indigo-500 hover:text-blue-600">Login to your account</button></p>
+        </form>
+
+        <!-- Login Form (Initially Hidden) -->
+        <form id="loginForm" class="hidden">
+            <h2 class="text-lg font-semibold mb-4">Login</h2>
+            <div class="mb-4">
+                <label for="loginEmail" class="block text-sm font-medium text-gray-700">Email Address</label>
+                <input type="email" id="loginEmail" class="mt-2 block w-full border-2 border-gray-100 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" required>
+            </div>
+            <div class="mb-6">
+                <label for="loginPassword" class="block text-sm font-medium text-gray-700">Password</label>
+                <input type="password" id="loginPassword" class="mt-2 block w-full border-2 border-gray-100 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" required>
+            </div>
+            <button type="submit" class="w-full items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Login</button>
+            <p class="mt-4 text-sm text-center">Need an account? <button type="button" id="showSignup" class="text-indigo-500 hover:text-blue-600">Sign up</button></p>
+        </form>
+    </div>
+
+    <script>
+        const signupForm = document.getElementById('signupForm');
+        const loginForm = document.getElementById('loginForm');
+        const showLogin = document.getElementById('showLogin');
+        const showSignup = document.getElementById('showSignup');
+
+        showLogin.addEventListener('click', () => {
+            loginForm.classList.remove('hidden');
+            signupForm.classList.add('hidden');
+        });
+
+        showSignup.addEventListener('click', () => {
+            signupForm.classList.remove('hidden');
+            loginForm.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
+</html>

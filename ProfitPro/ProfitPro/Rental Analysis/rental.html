@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rental Property Investment Calculator</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.0.0/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 p-8">
+    <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow">
+        <h1 class="text-2xl font-semibold mb-5">Rental Property Investment Calculator</h1>
+
+        <!-- Property Information -->
+        <div class="mb-6">
+            <h2 class="font-semibold text-lg mb-3">Property Information</h2>
+            <div class="mb-4">
+                <label for="purchasePrice" class="block text-sm font-medium text-gray-700">Purchase Price</label>
+                <div class="mt-1 relative rounded-md">
+                    <input type="number" id="purchasePrice" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="0.00" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="closingCosts" class="block text-sm font-medium text-gray-700">Estimated Closing Costs</label>
+                <div class="mt-1 relative rounded-md">
+                    <input type="number" id="closingCosts" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="0.00" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loan Details -->
+        <div class="mb-6">
+            <h2 class="font-semibold text-lg mb-3">Loan Details</h2>
+            <div class="mb-4">
+                <label for="downPaymentPercentage" class="block text-sm font-medium text-gray-700">Down Payment (%)</label>
+                <div class="mt-1 relative rounded-md">
+                    <input type="number" id="downPaymentPercentage" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="20" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="loanInterestRate" class="block text-sm font-medium text-gray-700">Interest Rate (%)</label>
+                <div class="mt-1 relative rounded-md">
+                    <input type="number" id="loanInterestRate" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="0.00" required>
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="loanTerm" class="block text-sm font-medium text-gray-700">Loan Term (years)</label>
+                <div class="mt-1 relative rounded-md">
+                    <input type="number" id="loanTerm" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="30" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Income -->
+        <div class="mb-6">
+            <h2 class="font-semibold text-lg mb-3">Income</h2>
+            <div class="mb-4">
+                <label for="monthlyRent" class="block text-sm font-medium text-gray-700">Estimated Monthly Rental Income</label>
+                <div class="mt-1 relative rounded-md">
+                    <input type="number" id="monthlyRent" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="0.00" required>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expenses -->
+        <div class="mb-6">
+            <h2 class="font-semibold text-lg mb-3">Expenses</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <label for="annualExpenses" class="block text-sm font-medium text-gray-700">Annual Expenses</label>
+                    <input type="number" id="annualExpenses" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500" placeholder="0.00" required>
+                </div>
+                <div>
+                    <label for="vacancyRate" class="block text-sm font-medium text-gray-700">Vacancy Rate (%)</label>
+                    <input type="number" id="vacancyRate" class="mt-2 block w-full border-2 border-gray-100 rounded-md focus:ring-indigo-500 focus:border-indigo-500d" placeholder="0.00" required>
+                </div>
+                <!-- Add more expense inputs as needed -->
+            </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <div class="flex justify-end">
+            <button id="calculateButton" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                Calculate
+            </button>
+        </div>
+
+        <!-- Analysis Results -->
+        <div id="analysisResult" class="mt-6 p-4 bg-gray-50 rounded-lg shadow-sm">
+            <!-- Results will be displayed here -->
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
