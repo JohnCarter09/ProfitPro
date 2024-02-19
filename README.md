@@ -52,7 +52,7 @@ Contributions are welcome! If you have suggestions for improving the calculator 
 
 ## License
 
-Distributed under the MIT License. See `LICENSE` for more information.
+No license is needed!
 
 ## Contact
 
